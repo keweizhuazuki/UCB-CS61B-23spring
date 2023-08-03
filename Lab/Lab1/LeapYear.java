@@ -9,7 +9,11 @@ public class LeapYear {
     public static boolean isLeapYear(int year){
         return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);
     }
-
+    /** Boolean represent the true or false;
+     * The reason to use public is that it can be used outside of the class; provate static can only be used inside of this class
+     * The difference between printf and println is that printf is like print format.
+     * %d means integer, %s means strings, %f means floating points. 
+     */
     private static void checkLeapYear(int year) {
         if (isLeapYear(year)) {
             System.out.printf("%d is a leap year.\n", year);
