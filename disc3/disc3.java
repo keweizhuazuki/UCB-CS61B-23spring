@@ -33,6 +33,7 @@ For example, if the SLList is 5 → 6 → 2, insert(10, 1) results in 5 → 10 �
             IntNode finalNode = new IntNode(item, CurrentNode.next);
             CurrentNode.next = finalNode;
     }
+    
 /** 
 Add another method to the SLList class that reverses the elements. Do this using
 the existing IntNodes (you should not use new).
