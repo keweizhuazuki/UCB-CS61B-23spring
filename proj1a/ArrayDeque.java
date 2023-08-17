@@ -105,10 +105,9 @@ public class ArrayDeque<T> {
         if (size  == 0){
             return null;
         }
-        T temp = array[last];
         last = minusOne(last);
         size--;
-        return temp;
+        return array[last];
     }
     public T get(int index) {
         if (index >= size){
