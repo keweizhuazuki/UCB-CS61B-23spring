@@ -80,8 +80,8 @@ public class ArrayDeque<T> {
         if (size == length -1){
             incrLength();
         }
-        last = addOne(last,length);
         array[last] = item;
+        last = addOne(last,length);
         size++;
     }
 
