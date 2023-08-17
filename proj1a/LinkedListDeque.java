@@ -83,7 +83,7 @@ public class LinkedListDeque<T> {
         if(index == 0){
             return x.item;
         }else{
-            getRecursiveHelper(x.next,index--);
+            return getRecursiveHelper(x.next,index--);
         }
     }
     
