@@ -52,7 +52,7 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
     public T dequeue() {
         // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
         if (isEmpty()) {
-            throw new RuntimeException("Ring buffer overflow");
+            throw new RuntimeException("Ring buffer underflow");
         }
         T delval = rb[first];
         fillCount--;
