@@ -12,20 +12,22 @@ public class MapGenerator {
     private int WIDTH;
 
     public static final Random RANDOM = new Random();
-
+    private long SEED;
     private TETile[][] world;
     private TETile[][] positionOftheRoom;
     private static ArrayList<Room> Rooms;
     private static final int maxRoomLength = 8;
     private static final int minRoomLength = 3;
+    public Position player;
     public Position door;
 
-    public MapGenerator(int width, int height/* , long seed */) {
+    public MapGenerator(int width, int height, long seed) {
         this.HEIGHT = height;
         this.WIDTH = width;
         world = new TETile[WIDTH][HEIGHT];
         positionOftheRoom = new TETile[WIDTH][HEIGHT];
-        /* this.SEED = seed; */
+        this.SEED = seed;
+        RANDOM.setSeed(seed);
     }
 
     public TETile[][] mapGenerator() {
@@ -33,13 +35,27 @@ public class MapGenerator {
             initializeWorldArray();
             Rooms = new ArrayList<>();
             randomlyBuildRoom();
-            Hallway.generateHallWay(world, Rooms); // Make sure Rooms is either passed to this function or is globally
+            Hallway.generateHallWay(world, Rooms, SEED); // Make sure Rooms is either passed to this function or is
+                                                         // globally
             // accessible
         } while (!Room.checkAllRoomsHaveHallway(Rooms)); // Assuming this function is moved here or is accessible
 
         /* modifyWalls(world); */
+        GeneratePlayer();
         generateDoor();
         return world;
+    }
+
+    private void GeneratePlayer() {
+        while (true) {
+            int x = RANDOM.nextInt(WIDTH);
+            int y = RANDOM.nextInt(HEIGHT);
+            if (Tileset.FLOOR.equals(world[x][y])) {
+                player = new Position(x, y);
+                world[x][y] = Tileset.PLAYER;
+                return;
+            }
+        }
     }
 
     private void initializeWorldArray() {

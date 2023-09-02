@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Hallway {
-    public static final Random RANDOM = new Random();
+    public static Random RANDOM; // Do not initialize it here.
 
     private static Position getRandomWallPosition(TETile[][] world) {
         int attempts = 0;
@@ -238,10 +238,10 @@ public class Hallway {
         }
     }
 
-    public static void generateHallWay(TETile[][] world, ArrayList<Room> Rooms) {
+    public static void generateHallWay(TETile[][] world, ArrayList<Room> Rooms, long seed) {
+        RANDOM = new Random(seed); // Initialize RANDOM with the provided seed.
         int maxAttempt = 300;
         int attempt = 0;
-
         while (attempt <= maxAttempt) {
             Position start = getRandomWallPosition(world);
             int Hallywaytype = deterType(start, world);
