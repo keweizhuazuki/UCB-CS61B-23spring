@@ -231,7 +231,7 @@ public class MapGenerator {
     }
 
     private void randomlyBuildRoom() {
-        int maxAttempt = 200;
+        int maxAttempt = 100;
         int attempt = 0;
         while (attempt < maxAttempt) {
             int roomWidth = RANDOM.nextInt(5, 10);

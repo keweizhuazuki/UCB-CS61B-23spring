@@ -289,7 +289,7 @@ public class Game {
 
         // title
         StdDraw.setFont(new Font("Arial", Font.BOLD, 40));
-        StdDraw.text(0.5, 0.8, "CS61B: BYoG");
+        StdDraw.text(0.5, 0.8, "CS61B: ZK_KW");
 
         // menu
         StdDraw.setFont(new Font("Arial", Font.PLAIN, 20));

@@ -240,7 +240,7 @@ public class Hallway {
 
     public static void generateHallWay(TETile[][] world, ArrayList<Room> Rooms, long seed) {
         RANDOM = new Random(seed); // Initialize RANDOM with the provided seed.
-        int maxAttempt = 300;
+        int maxAttempt = 150;
         int attempt = 0;
         while (attempt <= maxAttempt) {
             Position start = getRandomWallPosition(world);
